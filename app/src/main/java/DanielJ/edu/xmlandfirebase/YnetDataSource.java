@@ -1,4 +1,4 @@
-package ness.edu.xmlandfirebase;
+package DanielJ.edu.xmlandfirebase;
 
 import android.util.Log;
 

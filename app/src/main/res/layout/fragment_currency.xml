@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ness.edu.xmlandfirebase.CurrencyFragment">
+    tools:context="DanielJ.edu.xmlandfirebase.CurrencyFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

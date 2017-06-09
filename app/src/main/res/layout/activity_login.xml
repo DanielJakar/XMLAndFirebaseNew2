@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="DanielJ.edu.xmlandfirebase.LoginActivity"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+<android.support.constraint.ConstraintLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/firebase_logo" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:id="@+id/tilEmail">
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email..." />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilEmail"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password..." />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/btnRegister"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="BootstrapButton"
+        app:bootstrapBrand="warning"
+        app:bootstrapSize="lg"
+        app:bootstrapText="Register {fa_user}"
+        app:buttonMode="regular"
+        app:layout_constraintLeft_toLeftOf="@+id/tilPassword"
+        app:layout_constraintTop_toBottomOf="@+id/tilPassword"
+        app:roundedCorners="true"
+        app:showOutline="false"
+        app:layout_constraintRight_toLeftOf="@+id/btnLogin"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/btnLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="BootstrapButton"
+        app:bootstrapBrand="warning"
+        app:bootstrapSize="lg"
+        app:bootstrapText="Login {fa_sign_in}"
+        app:buttonMode="regular"
+        app:layout_constraintLeft_toRightOf="@+id/btnRegister"
+        app:layout_constraintRight_toRightOf="@+id/tilPassword"
+        app:layout_constraintTop_toBottomOf="@+id/tilPassword"
+        app:roundedCorners="true"
+        app:showOutline="false"
+        app:layout_constraintHorizontal_chainStyle="spread"
+
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="16dp" />
+</android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>

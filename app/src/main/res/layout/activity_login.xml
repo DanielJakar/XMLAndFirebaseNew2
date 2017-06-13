@@ -105,5 +105,33 @@
 
         android:layout_marginRight="8dp"
         android:layout_marginLeft="16dp" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/btnVerify"
+        app:bootstrapSize="lg"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:bootstrapText="Verify"
+        app:bootstrapBrand="info"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp">
+
+    </com.beardedhen.androidbootstrap.BootstrapButton>
+
+    <com.google.android.gms.common.SignInButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/btnGoogle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+    </com.google.android.gms.common.SignInButton>
 </android.support.constraint.ConstraintLayout>
 </android.support.design.widget.CoordinatorLayout>

@@ -15,10 +15,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.common.Scopes;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static final int RC_SIGN_IN = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +39,13 @@ public class MainActivity extends AppCompatActivity
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() == null ||
                         !firebaseAuth.getCurrentUser().isEmailVerified()){
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                    startActivity(intent);
-                    //finish(); // close the current activity
+//                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+//
+//                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+//
+//                    startActivity(intent);
+//                    //finish(); // close the current activity
+                    authUI();
                 }
             }
         });
@@ -61,6 +70,33 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void authUI() {
+        List<AuthUI.IdpConfig> providers = new ArrayList<>();
+        AuthUI.IdpConfig google = new AuthUI.IdpConfig.
+                            Builder(AuthUI.GOOGLE_PROVIDER).
+                            setPermissions(Arrays.asList(Scopes.PROFILE, Scopes.EMAIL)).build();
+
+        AuthUI.IdpConfig email = new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build();
+
+        providers.add(google);
+        providers.add(email);
+//        startActivityForResult(
+//                AuthUI.getInstance()
+//                        .createSignInIntentBuilder()
+//                        .setProviders(providers)
+//                                Arrays.asList(new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build(),
+//                                        new AuthUI.IdpConfig.Builder(AuthUI.PHONE_VERIFICATION_PROVDER).build(),
+//                                        new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build(),
+//                                        new AuthUI.IdpConfig.Builder(AuthUI.FACEBOOK_PROVIDER).build(),
+//                                        new AuthUI.IdpConfig.Builder(AuthUI.TWITTER_PROVIDER).build()))
+        Intent intent = AuthUI.
+                 getInstance().
+                 createSignInIntentBuilder().
+                 setProviders(providers).build();
+
+        startActivityForResult(intent, RC_SIGN_IN);
     }
 
     @Override
